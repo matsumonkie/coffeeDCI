@@ -1,0 +1,4 @@
+node_modules/
+h2o/pid
+h2o/access-log
+h2o/error-log

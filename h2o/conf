@@ -1,0 +1,33 @@
+user: iori
+http2-reprioritize-blocking-assets: ON
+
+hosts:
+  'dev.foo.com':
+    listen:
+      port: 80
+    paths:
+      /:
+        redirect:
+          url: 'https://dev.foo.com'
+          status: 302
+
+hosts:
+  'dev.foo.com':
+    listen:
+      port: 443
+      ssl:
+        certificate-file: ./ssl/server-certificate.crt
+        key-file: ./ssl/private-key.crt
+    paths:
+      /:
+        #file.dir: /home/iori/work/coffeeDCI
+        #file.etag: ON
+        #file.send-gzip: ON
+        proxy.reverse.url: "http://127.0.0.1:3000/"
+
+
+error-log: ./error-log
+pid-file: ./pid
+access-log:
+   path: ./access-log
+   format: "%t %h %V %H %m %s -> %U%q"
