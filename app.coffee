@@ -10,9 +10,17 @@ class Config
   constructor: (@app) ->
 
   setup: () ->
+    setTemplateEngines(@app)
+    loadAppConfig(@app)
+
+  setTemplateEngines = (app) ->
+    app.set('views', "#{APP_PATH}/views")
+    #app.engine('html', require('jade').__express)
+
+  loadAppConfig = (app) ->
     fs.readdir CONFIG_PATH, (err, files) =>
       _.each files, (file) =>
-        require("#{CONFIG_PATH}/#{file}")(@app)
+        require("#{CONFIG_PATH}/#{file}")(app)
 
 class Server
 

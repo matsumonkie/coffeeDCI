@@ -1,5 +1,6 @@
 user: iori
 http2-reprioritize-blocking-assets: ON
+expires: 1 day
 
 hosts:
   'dev.foo.com':

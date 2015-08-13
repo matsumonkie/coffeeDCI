@@ -1,10 +1,11 @@
-Controller = require "#{APP_PATH}/controllers/controller"
+Controller = require "#{APP_PATH}/lib/controller"
 
 module.exports = (app) ->
-  new Controller(app)
+
+  new Controller('birds', app)
 
     .get '/birds', (i, o) ->
-      o.send('index')
+      o.render("birds/index.jade", title: new Date);
 
     .get '/birds/new', (i, o) ->
       o.send('new')
