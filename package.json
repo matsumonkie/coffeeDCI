@@ -9,8 +9,10 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "browserify": "^11.0.1",
     "express": "~4.13.3",
     "jade": "~1.11.0",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "react": "^0.13.3"
   }
 }

@@ -3,17 +3,17 @@ http2-reprioritize-blocking-assets: ON
 expires: 1 day
 
 hosts:
-  'dev.foo.com':
+  dev.foo.com:
     listen:
       port: 80
     paths:
       /:
         redirect:
-          url: 'https://dev.foo.com'
+          url: https://dev.foo.com
           status: 302
 
 hosts:
-  'dev.foo.com':
+  dev.foo.com:
     listen:
       port: 443
       ssl:
@@ -21,11 +21,10 @@ hosts:
         key-file: ./ssl/private-key.crt
     paths:
       /:
-        #file.dir: /home/iori/work/coffeeDCI
-        #file.etag: ON
-        #file.send-gzip: ON
-        proxy.reverse.url: "http://127.0.0.1:3000/"
-
+        file.send-gzip: ON
+        proxy.reverse.url: http://127.0.0.1:3000/
+      /assets:
+        file.dir: /home/iori/work/coffeeDCI/assets/
 
 error-log: ./error-log
 pid-file: ./pid

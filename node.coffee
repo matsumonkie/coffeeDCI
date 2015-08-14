@@ -1,9 +1,8 @@
+librairies = require './librairies'
 express = require 'express'
-global._ = require 'lodash'
 fs = require 'fs'
-global.APP_PATH = __dirname
 
-class Config
+class NodeConfig
 
   CONFIG_PATH = "#{APP_PATH}/config"
 
@@ -15,14 +14,13 @@ class Config
 
   setTemplateEngines = (app) ->
     app.set('views', "#{APP_PATH}/views")
-    #app.engine('html', require('jade').__express)
 
   loadAppConfig = (app) ->
     fs.readdir CONFIG_PATH, (err, files) =>
       _.each files, (file) =>
         require("#{CONFIG_PATH}/#{file}")(app)
 
-class Server
+class Node
 
   PORT = 3000
 
@@ -34,5 +32,5 @@ class Server
       port = server.address().port
 
 app = express()
-new Config(app).setup()
-new Server(app).run()
+new NodeConfig(app).setup()
+new Node(app).run()
