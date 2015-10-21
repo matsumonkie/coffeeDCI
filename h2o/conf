@@ -9,7 +9,7 @@ hosts:
     paths:
       /:
         redirect:
-          url: https://dev.foo.com
+          url: https://dev.foo.com/
           status: 302
 
 hosts:
@@ -21,6 +21,7 @@ hosts:
         key-file: ./ssl/private-key.crt
     paths:
       /:
+        header.add: "Link: </assets/applications.js>; rel=preload; as=script"
         file.send-gzip: ON
         proxy.reverse.url: http://127.0.0.1:3000/
       /assets:

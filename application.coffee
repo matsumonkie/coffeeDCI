@@ -1,3 +1,4 @@
-librairies = require './librairies.coffee'
-console.log 'test'
-React.render React.createElement('h1', null, 'Hello, world!'), document.getElementById('bird')
+librairies = require './librairies'
+
+require './components/user-modal'
+require './components/user-form'

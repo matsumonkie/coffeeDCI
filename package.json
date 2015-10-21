@@ -10,9 +10,13 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "browserify": "^11.0.1",
+    "es6-promise": "^3.0.2",
     "express": "~4.13.3",
     "jade": "~1.11.0",
+    "key-mirror": "^1.0.0",
     "lodash": "~3.10.1",
-    "react": "^0.13.3"
+    "object-assign": "^3.0.0",
+    "react": "^0.13.3",
+    "spdy": "^2.0.4"
   }
 }
