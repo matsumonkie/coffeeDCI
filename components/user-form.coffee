@@ -8,17 +8,19 @@ Form = React.createClass
 
   submit: (e) ->
     e.preventDefault()
-    name = React.findDOMNode(@refs.name).value
-    @setState name: name
-    UserActions.create name: name
+    email = React.findDOMNode(@refs.email).value
+    password = React.findDOMNode(@refs.password).value
+    @setState email: email
+    UserActions.submitSignIn email: email
 
   render: ->
     React.createElement(
       'div',
       {},
-      React.createElement('input', { type: 'text', placeholder: 'name', ref: 'name' }, ''),
+      React.createElement('input', { type: 'text', placeholder: 'email', ref: 'email' }, ''),
+      React.createElement('input', { type: 'password', placeholder: 'password', ref: 'password' }, ''),
       React.createElement('input', { type: 'button', onClick: @submit, value: 'submit' }),
-      React.createElement('h1', {}, "hello #{@state['name']}")
+      React.createElement('h1', {}, "hello #{@state['email']}")
     )
 
 React.render(

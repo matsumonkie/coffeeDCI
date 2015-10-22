@@ -6,7 +6,7 @@ assign        = require 'object-assign'
 CHANGE_EVENT = 'change'
 
 _user =
-  name: 'john'
+  email: 'visitor'
 
 UserStore = assign {}, EventEmitter.prototype,
 
@@ -26,8 +26,17 @@ AppDispatcher.register (action) ->
 
   switch action.type
 
-    when UserConstants.CREATE
-      UserStore.updateUser action.payload
-      UserStore.emitChange()
+    when UserConstants.SUBMIT_SIGN_IN
+      # signin
+      R.get('/search').end (err, res) ->
+        console.log err
+
+      if true
+        UserStore.updateUser action.payload
+        UserStore.emitChange()
+      else
+        # do nothing
+
+
 
 module.exports = UserStore

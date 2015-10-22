@@ -17,6 +17,7 @@
     "lodash": "~3.10.1",
     "object-assign": "^3.0.0",
     "react": "^0.13.3",
-    "spdy": "^2.0.4"
+    "spdy": "^2.0.4",
+    "superagent": "^1.4.0"
   }
 }

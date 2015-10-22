@@ -16,7 +16,7 @@ Modal = React.createClass
     React.createElement(
       'h1',
       {},
-      "your name has been set to #{@state['name']}"
+      "you just signed in #{@state['email']}"
     )
 
 React.render(

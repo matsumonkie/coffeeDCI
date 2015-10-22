@@ -3,9 +3,9 @@ UserConstants = require '../constants/user-constants'
 
 UserActions =
 
-  create: (payload) ->
+  submitSignIn: (payload) ->
     AppDispatcher.dispatch
-      type: UserConstants.CREATE
+      type: UserConstants.SUBMIT_SIGN_IN
       payload: payload
 
 module.exports = UserActions
